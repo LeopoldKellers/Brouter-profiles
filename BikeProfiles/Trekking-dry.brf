@@ -559,7 +559,8 @@ assign footaccess =
 
 
 assign initialcost =
-        add ( if ( and barrier=cycle_barrier|chicane not allow_cycle_barrier ) then ( add dismountpenalty haulpenalty )
+        add ( if ( and barrier=cycle_barrier|chicane not allow_cycle_barrier ) then
+                  ( add ( switch bikeaccess dismountpenalty 0 ) haulpenalty )
               else if highway=traffic_signals then 120
               else if highway=stop  then 60 
               else if and highway=crossing bicycle=no then 60 
